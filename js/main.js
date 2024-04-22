@@ -1,18 +1,23 @@
-const searchEl = document.querySelector('.search');
-const searchInputEl = searchEl.querySelector('input');
+// 검색창 요소(.search) 찾기.
+const searchEl = document.querySelector('.search')
+const searchInputEl = searchEl.querySelector('input')
+// 검색창 요소를 클릭하면 실행.
+searchEl.addEventListener('click', function () {
+  searchInputEl.focus()
+})
+// 검색창 요소 내부 실제 input 요소에 포커스되면 실행.
+searchInputEl.addEventListener('focus', function () {
+  searchEl.classList.add('focused')
+  searchInputEl.setAttribute('placeholder', '통합검색')
+})
+// 검색창 요소 내부 실제 input 요소에서 포커스가 해제(블러)되면 실행.
+searchInputEl.addEventListener('blur', function () {
+  searchEl.classList.remove('focused')
+  searchInputEl.setAttribute('placeholder', '')
+})
 
-searchEl.addEventListener('click',function() {
-    searchInputEl.focus();
-});
+const badgeEl = document.querySelector('header .badges');
 
-searchInputEl.addEventListener('focus', function() {
-    searchEl.classList.add('focused');
-    //특정 요소에 클래스 정보를 가지고 있는 객체에서 add하겠다.
-    searchInputEl.setAttribute('placeholder','통합검색');
-});
-
-searchInputEl.addEventListener('blur', function() {
-    searchEl.classList.remove('focused');
-    //특정 요소에 클래스 정보를 가지고 있는 객체에서 add하겠다.
-    searchInputEl.setAttribute('placeholder','');
+window.addEventListener('scroll', function() {
+    console.log('scroll!');
 });
